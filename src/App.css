@@ -7,6 +7,7 @@ body {
   margin: 0;
   padding: 0;
   line-height: 1.5;
+  box-sizing: border-box;
 }
 body,
 .app {
@@ -124,6 +125,10 @@ body,
 
 .book {
   width: 140px;
+}
+.book:hover {
+  transform: scale(1.1);
+  transition: 0.5s;
 }
 .book-title,
 .book-authors {
@@ -272,17 +277,36 @@ body,
   }
 }
 
-/*-------------------- Detailed Book ------------------------*/
-
+/*------------------- Detailed Book ------------------*/
+.close--btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.container {
+  display: grid;
+  place-items: center;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+}
 .book--bg {
+  padding: 0.5rem;
+  width: 80vw;
+  height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background: #0ef5f5;
-  background: linear-gradient(324deg, #0ef5f5 0%, #2b1dc0 80%);
-  background: -webkit-linear-gradient(324deg, #0ef5f5 0%, #2b1dc0 80%);
-  background: -moz-linear-gradient(324deg, #0ef5f5 0%, #2b1dc0 80%);
+  background: rgb(48, 182, 181);
+  background: radial-gradient(
+    circle,
+    rgba(48, 182, 181, 1) 0%,
+    rgba(122, 224, 90, 1) 47%,
+    rgba(252, 202, 70, 1) 100%
+  );
+  z-index: 10;
 }
 .book--window {
   position: relative;
@@ -290,15 +314,15 @@ body,
   height: 90%;
   padding: 0.9rem;
   display: flex;
-  flex-direction: column;
   align-items: center;
   gap: 1rem;
-  background: RGBA(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.2);
 }
 .details-window-arrow {
   position: absolute;
   transition: 0.5s;
   border: none;
+  cursor: pointer;
 }
 .details-window-arrow:hover {
   transform: scale(1.2);
@@ -307,9 +331,10 @@ body,
   font-size: 1rem;
 }
 .book-details {
+  width: 70%;
+  margin: auto;
   font-size: 1.2rem;
   background-color: rgba(247, 245, 245, 0.2);
-  width: 90%;
   padding: 1rem;
   display: flex;
   flex-direction: column;
@@ -325,6 +350,7 @@ a {
   border: none;
   text-align: center;
 }
+
 /*-------------------- Error ------------------------*/
 Error .error {
   margin: 50vh;
